@@ -1,0 +1,72 @@
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import WizardLayout from "../../layouts/WizardLayout";
+
+const QuestionsStep = () => {
+  const { state } = useLocation();
+
+  if (!state) return <p>No questions loaded</p>;
+
+  const { domain, questions } = state;
+
+  const [answers, setAnswers] = useState({});
+
+  const handleSubmit = async () => {
+    console.log("SUBMIT CLICKED");
+
+    for (const question of questions) {
+      await fetch("http://127.0.0.1:8005/pre-elicitation/response", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          domain: domain,
+          question: question,
+          answer: answers[question] || "",
+        }),
+      });
+    }
+
+    alert("Answers saved successfully");
+  };
+
+  return (
+    <WizardLayout currentStep={1}>
+      <h2>{domain} – Questions</h2>
+
+      {questions.map((q, index) => (
+        <div key={index} style={{ marginBottom: 20 }}>
+          <p>{q}</p>
+          <input
+            style={{ width: "100%", padding: 10 }}
+            placeholder="Your answer (optional)"
+            value={answers[q] || ""}
+            onChange={(e) =>
+              setAnswers({ ...answers, [q]: e.target.value })
+            }
+          />
+        </div>
+      ))}
+
+      {/* ⬇️ الزر لازم يكون هنا بالزبط */}
+      <button
+        type="button"
+        onClick={handleSubmit}
+        style={{
+          marginTop: 30,
+          padding: "12px 24px",
+          background: "#4f46e5",
+          color: "white",
+          border: "none",
+          borderRadius: 6,
+          cursor: "pointer",
+        }}
+      >
+        Submit
+      </button>
+    </WizardLayout>
+  );
+};
+
+export default QuestionsStep;

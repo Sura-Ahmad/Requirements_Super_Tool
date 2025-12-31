@@ -1,0 +1,8 @@
+{
+  "elicitation_questions": [
+    "What type of healthcare system is required?",
+    "Who are the primary users?",
+    "Is patient data considered sensitive?",
+    "Are there compliance requirements?"
+  ]
+}
