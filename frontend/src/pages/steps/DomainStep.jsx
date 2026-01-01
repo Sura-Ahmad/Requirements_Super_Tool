@@ -27,6 +27,7 @@ const DomainStep = () => {
       <div style={{ display: "flex", gap: 20 }}>
         <DomainCard title="E-Commerce" onSelect={() => handleSelectDomain("ecommerce")} />
         <DomainCard title="Healthcare" onSelect={() => handleSelectDomain("healthcare")} />
+        <DomainCard title="Education" onSelect={() => handleSelectDomain("Education")} />
       </div>
 
       <CustomDomainInput
