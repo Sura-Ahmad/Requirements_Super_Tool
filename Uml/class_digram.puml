@@ -1,0 +1,36 @@
+@startuml
+
+class DomainRoutes {
+  +get_domain_questions(domain_name: str)
+}
+
+class PreElicitationRoutes {
+  +save_response(data)
+}
+
+class DomainService {
+  +load_domain_knowledge(domain_name: str)
+}
+
+class ElicitationQuestionService {
+  +generate_domain_questions(domain_knowledge: dict)
+}
+
+class PreElicitationStorageService {
+  +store_response(domain: str, question: str, answer: str)
+}
+
+class PreElicitationResponse {
+  id: int
+  domain: str
+  question: str
+  answer: str
+}
+
+DomainRoutes --> DomainService
+DomainRoutes --> ElicitationQuestionService
+
+PreElicitationRoutes --> PreElicitationStorageService
+PreElicitationStorageService --> PreElicitationResponse
+
+@enduml
