@@ -9,15 +9,16 @@ app = FastAPI(title="Requirements Super Tool")
 
 app.add_middleware(
     CORSMiddleware,         #without it React cannot ineract with FastAPI backend
-    allow_origins=["http://localhost:5173"],    # * means all origins are allowed to interact with backend(react/browser/postman etc)
+    allow_origins=["*"],    # * means all origins are allowed to interact with backend(react/browser/postman etc)
     allow_credentials=True, # cookies/tokens 
-    allow_methods=["Get","Post"],    # all requsets(get/put/post...etc)
-    allow_headers=["Authorization", "Content-Type"],    # content-type/authorization...etc  
+    allow_methods=["*"],    # all requsets(get/put/post...etc)
+    allow_headers=["*"],    # content-type/authorization...etc  
 )
 
 Base.metadata.create_all(bind=engine) #create the database tables based on the defined models
 
-app.include_router(domain_router) # each end point in domain_router is active
+app.include_router(domain_router) # end points ready to recieve requests
 app.include_router(pre_router)    # end points ready to recieve requests
 
 # CORSMiddleware include the common between requests
+# CORS also gives permission to the browser to interact with backend
