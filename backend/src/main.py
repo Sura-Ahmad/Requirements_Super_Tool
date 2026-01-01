@@ -8,14 +8,11 @@ from src.database.models import Base                            # Base is the pa
 app = FastAPI(title="Requirements Super Tool")
 
 app.add_middleware(
-    CORSMiddleware,         #without it React cannot ineract with FastAPI backend
-    allow_origins=[
-        "http://localhost:5175",
-        "http://127.0.0.1:5175",
-    ],    # * means all origins are allowed to interact with backend(react/browser/postman etc)
-    allow_credentials=True, # cookies/tokens 
-    allow_methods=["*"],    # all requsets(get/put/post...etc)
-    allow_headers=["*"],    # content-type/authorization...etc  
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 Base.metadata.create_all(bind=engine) #create the database tables based on the defined models
