@@ -1,0 +1,20 @@
+@startuml
+
+actor User
+participant "React UI" as UI
+participant "Domain Routes" as Route
+participant "Domain Service" as DomainService
+participant "Elicitation Question Service" as QuestionService
+
+User -> UI : Select domain
+UI -> Route : GET /domains/{domain}/elicitation-questions
+
+Route -> DomainService : load_domain_knowledge(domain)
+DomainService --> Route : domain_knowledge
+
+Route -> QuestionService : generate_domain_questions(domain_knowledge)
+QuestionService --> Route : questions
+
+Route --> UI : questions_list
+
+@enduml

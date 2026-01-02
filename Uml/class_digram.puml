@@ -1,22 +1,22 @@
 @startuml
 
-class DomainRoutes {
+class domain_routes {
   +get_domain_questions(domain_name: str)
 }
 
-class PreElicitationRoutes {
+class pre_elicitation_routes {
   +save_response(data)
 }
 
-class DomainService {
+class domain_service {
   +load_domain_knowledge(domain_name: str)
 }
 
-class ElicitationQuestionService {
+class elicitation_question_service {
   +generate_domain_questions(domain_knowledge: dict)
 }
 
-class PreElicitationStorageService {
+class pre_elicitation_storage_service {
   +store_response(domain: str, question: str, answer: str)
 }
 
@@ -27,10 +27,9 @@ class PreElicitationResponse {
   answer: str
 }
 
-DomainRoutes --> DomainService
-DomainRoutes --> ElicitationQuestionService
+domain_routes --> domain_service
+domain_routes --> elicitation_question_service
 
-PreElicitationRoutes --> PreElicitationStorageService
-PreElicitationStorageService --> PreElicitationResponse
-
+pre_elicitation_routes --> pre_elicitation_storage_service
+pre_elicitation_storage_service --> PreElicitationResponse
 @enduml

@@ -1,0 +1,19 @@
+@startuml
+
+actor User
+participant "React UI" as UI
+participant "Pre-Elicitation Routes" as Route
+participant "Storage Service" as Storage
+participant "Database" as DB
+
+User -> UI : Submit answer
+UI -> Route : POST /pre-elicitation/response
+
+Route -> Storage : store_response(domain, question, answer)
+Storage -> DB : insert response
+DB --> Storage : success
+
+Storage --> Route : response id
+Route --> UI : confirmation(Answers saved successfully)
+
+@enduml
