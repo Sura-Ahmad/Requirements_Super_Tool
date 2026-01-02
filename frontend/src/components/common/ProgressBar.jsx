@@ -6,7 +6,7 @@ const ProgressBar = ({ percentage }) => {
           width: `${percentage}%`,
           height: "100%",
           background: "#4f46e5",
-          borderRadius: 3,
+          borderRadius: 4,
         }}
       />
     </div>

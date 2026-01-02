@@ -12,3 +12,8 @@ def load_domain_knowledge(domain_name: str) -> dict:
 
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
+    
+
+    #_file_ is a special variable that holds the path of the current file
+    #resolve (clean the path to make it clearer , sometime it includes extra .. or // )
+    #parent.parent goes two levels up from the current file location()knowledgebase-domain two levels
