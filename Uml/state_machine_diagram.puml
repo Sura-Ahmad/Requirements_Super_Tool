@@ -11,6 +11,7 @@ GeneratingQuestions --> QuestionsReady
 QuestionsReady --> AnsweringQuestions
 
 AnsweringQuestions --> SubmittingResponses : submit answers
+AnsweringQuestions --> Idle : back
 SubmittingResponses --> StoringResponses
 StoringResponses --> Completed
 

@@ -51,7 +51,6 @@ const QuestionsStep = () => {
 
       <button
         type="button"
-        onClick={handleSubmit}
         style={{
           marginTop: 30,
           padding: "12px 24px",
