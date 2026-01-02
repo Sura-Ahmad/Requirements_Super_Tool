@@ -1,0 +1,19 @@
+@startuml StateMachineDiagram
+
+[*] --> Idle
+
+Idle --> DomainSelected : select domain
+
+DomainSelected --> LoadingDomainKnowledge
+LoadingDomainKnowledge --> GeneratingQuestions
+GeneratingQuestions --> QuestionsReady
+
+QuestionsReady --> AnsweringQuestions
+
+AnsweringQuestions --> SubmittingResponses : submit answers
+SubmittingResponses --> StoringResponses
+StoringResponses --> Completed
+
+Completed --> Role : select or insert role
+
+@enduml

@@ -49,7 +49,6 @@ const QuestionsStep = () => {
         </div>
       ))}
 
-      {/* ⬇️ الزر لازم يكون هنا بالزبط */}
       <button
         type="button"
         onClick={handleSubmit}
@@ -63,8 +62,25 @@ const QuestionsStep = () => {
           cursor: "pointer",
         }}
       >
+        Back
+      </button>
+      <button
+        type="button"
+        onClick={handleSubmit}
+        style={{
+          marginTop: 30,
+          marginLeft: 20,
+          padding: "12px 24px",
+          background: "#4f46e5",
+          color: "white",
+          border: "none",
+          borderRadius: 6,
+          cursor: "pointer",
+        }}
+      >
         Submit
       </button>
+      
     </WizardLayout>
   );
 };
