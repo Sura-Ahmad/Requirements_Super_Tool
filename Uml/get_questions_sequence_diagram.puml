@@ -1,4 +1,4 @@
-@startuml
+@startuml GetQuestionsSequenceDiagram
 
 actor User
 participant "React UI" as UI

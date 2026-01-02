@@ -1,4 +1,4 @@
-@startuml
+@startuml ClassDiagram
 
 class domain_routes {
   +get_domain_questions(domain_name: str)

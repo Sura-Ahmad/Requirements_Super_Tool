@@ -1,4 +1,4 @@
-@startuml
+@startuml SaveResponseSequenceDiagram
 
 actor User
 participant "React UI" as UI
