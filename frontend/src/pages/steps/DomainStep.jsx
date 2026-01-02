@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import WizardLayout from "../../layouts/WizardLayout";
 import DomainCard from "../../components/domain/DomainCard";
-import CustomDomainInput from "../../components/domain/CustomDomainInput";
 import { getDomainQuestions } from "../../api/domainApi";
 import { useState } from "react";
 
@@ -24,16 +23,14 @@ const DomainStep = () => {
     <WizardLayout currentStep={0}>
       <h2>Select Your Domain</h2>
 
-      <div style={{ display: "flex", gap: 20 }}>
-        <DomainCard title="E-Commerce" onSelect={() => handleSelectDomain("ecommerce")} />
+      <div style={{ display: "flex",flexWrap: "wrap", gap: 20 }}>
         <DomainCard title="Healthcare" onSelect={() => handleSelectDomain("healthcare")} />
+        <DomainCard title="E-Commerce" onSelect={() => handleSelectDomain("ecommerce")} />  
         <DomainCard title="Education" onSelect={() => handleSelectDomain("Education")} />
+        <DomainCard title="Tourism" onSelect={() => handleSelectDomain("Tourism")} />
+        <DomainCard title="Technology" onSelect={() => handleSelectDomain("Technology")} />
+        <DomainCard title="Transportation" onSelect={() => handleSelectDomain("Transportation")} />
       </div>
-
-      <CustomDomainInput
-        value={customDomain}
-        onChange={setCustomDomain}
-      />
     </WizardLayout>
   );
 };
