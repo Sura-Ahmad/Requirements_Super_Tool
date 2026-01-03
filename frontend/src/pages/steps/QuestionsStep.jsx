@@ -1,15 +1,21 @@
-import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import WizardLayout from "../../layouts/WizardLayout";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const QuestionsStep = () => {
+  const QuestionsStep = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
 
   if (!state) return <p>No questions loaded</p>;
 
   const { domain, questions } = state;
 
   const [answers, setAnswers] = useState({});
+  const [errors, setErrors] = useState({});
+
+    const handleBack = () => {
+    navigate(-1);
+  };
 
   const handleSubmit = async () => {
     console.log("SUBMIT CLICKED");
@@ -51,6 +57,7 @@ const QuestionsStep = () => {
 
       <button
         type="button"
+        onClick={handleBack}
         style={{
           marginTop: 30,
           padding: "12px 24px",
@@ -70,7 +77,7 @@ const QuestionsStep = () => {
           marginTop: 30,
           marginLeft: 20,
           padding: "12px 24px",
-          background: "#4f46e5",
+          background: "#4f46e5",  
           color: "white",
           border: "none",
           borderRadius: 6,
