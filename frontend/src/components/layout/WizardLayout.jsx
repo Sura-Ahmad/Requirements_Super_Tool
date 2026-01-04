@@ -1,5 +1,5 @@
-import Header from "../components/layout/Header";
-import Stepper from "../components/layout/Stepper";
+import Header from "./Header";
+import Stepper from "./Stepper";
 
 const WizardLayout = ({ children, currentStep }) => {
   return (

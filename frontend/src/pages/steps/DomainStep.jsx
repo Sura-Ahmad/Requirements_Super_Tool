@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import WizardLayout from "../../layouts/WizardLayout";
-import DomainCard from "../../components/domain/DomainCard";
+import WizardLayout from "../../components/layout/WizardLayout";
+import DomainCard from "../../components/layout/DomainCard";
 import { getDomainQuestions } from "../../api/domainApi";
 import { useState } from "react";
 
@@ -36,3 +36,6 @@ const DomainStep = () => {
 };
 
 export default DomainStep;
+
+
+

@@ -1,32 +1,32 @@
 import { useState } from "react";
-import WizardLayout from "../../layouts/WizardLayout";
+import WizardLayout from "../../components/layout/WizardLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 
-  const QuestionsStep = () => {
-  const { state } = useLocation();
-  const navigate = useNavigate();
+const QuestionsStep = () => {
+  const { state } = useLocation();  // data from previous page
+  const navigate = useNavigate();   // to navigate between pages
 
-  if (!state) return <p>No questions loaded,start from page1 and select domain first</p>;
+  if (!state) return <p>No questions loaded, start from page1 and select domain first</p>;
 
-  const { domain, questions } = state;
+  const { domain, questions } = state; // get domain and questions from state
 
-  const [answers, setAnswers] = useState({});
-    /*
-    const handleSkip = () => {
-      navigate("/role", {
-        state: {                    role page not implemented yet to navigate to 
-          domain,
-          skippedQuestions: true,
-        },
-      });
-    };
-   */
-    const handleBack = () => {
+  const [answers, setAnswers] = useState({});  // to store user answers
+  /*
+  const handleSkip = () => {
+    navigate("/role", {
+      state: {                    role page not implemented yet to navigate to 
+        domain,
+        skippedQuestions: true,
+      },
+    });
+  };
+ */
+  const handleBack = () => {
     navigate(-1);
   };
 
-    const handleSubmit = async () => {
-      console.log("Submit clicked");
+  const handleSubmit = async () => {
+    console.log("Submit clicked");
 
     for (const question of questions) {
       await fetch("http://127.0.0.1:8005/pre-elicitation/response", {
@@ -34,7 +34,7 @@ import { useLocation, useNavigate } from "react-router-dom";
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
+        body: JSON.stringify({        // translate object to JSON string and send to backend(backend know string not object)
           domain: domain,
           question: question,
           answer: answers[question] || "",
@@ -86,7 +86,7 @@ import { useLocation, useNavigate } from "react-router-dom";
           marginTop: 30,
           marginLeft: 20,
           padding: "12px 24px",
-          background: "#4f46e5",  
+          background: "#4f46e5",
           color: "white",
           border: "none",
           borderRadius: 6,
@@ -96,9 +96,9 @@ import { useLocation, useNavigate } from "react-router-dom";
         Submit
       </button>
 
-            <button
+      <button
         type="button"
-     // onClick={handleSkip} (Role page not implemented yet)
+        // onClick={handleSkip} (Role page not implemented yet)
         style={{
           marginTop: 30,
           padding: "12px 24px",
