@@ -1,0 +1,9 @@
+{
+  "elicitation_questions": [
+    "What type of education system is required?",
+    "Who are the primary users?",
+    "Is student/teacher data considered sensitive?",
+    "Are there compliance requirements?",
+    "Any additional information?"
+  ]
+}

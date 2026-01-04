@@ -1,8 +1,8 @@
 {
   "elicitation_questions": [
-    "What type of e-commerce system is required?",
+    "What type of transportation system is required?",
     "Who are the primary users?",
-    "Is customer data considered sensitive?",
+    "Is sensitive data considered?",
     "Are there compliance requirements?",
     "Any additional information?"
   ]
