@@ -6,19 +6,27 @@ import { useLocation, useNavigate } from "react-router-dom";
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  if (!state) return <p>No questions loaded</p>;
+  if (!state) return <p>No questions loaded,start from page1 and select domain first</p>;
 
   const { domain, questions } = state;
 
   const [answers, setAnswers] = useState({});
-  const [errors, setErrors] = useState({});
-
+    /*
+    const handleSkip = () => {
+      navigate("/role", {
+        state: {                    role page not implemented yet to navigate to 
+          domain,
+          skippedQuestions: true,
+        },
+      });
+    };
+   */
     const handleBack = () => {
     navigate(-1);
   };
 
-  const handleSubmit = async () => {
-    console.log("SUBMIT CLICKED");
+    const handleSubmit = async () => {
+      console.log("Submit clicked");
 
     for (const question of questions) {
       await fetch("http://127.0.0.1:8005/pre-elicitation/response", {
@@ -39,7 +47,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
   return (
     <WizardLayout currentStep={1}>
-      <h2>{domain} – Questions</h2>
+      <h2>{domain} – questions</h2>
 
       {questions.map((q, index) => (
         <div key={index} style={{ marginBottom: 20 }}>
@@ -70,6 +78,7 @@ import { useLocation, useNavigate } from "react-router-dom";
       >
         Back
       </button>
+
       <button
         type="button"
         onClick={handleSubmit}
@@ -86,7 +95,24 @@ import { useLocation, useNavigate } from "react-router-dom";
       >
         Submit
       </button>
-      
+
+            <button
+        type="button"
+     // onClick={handleSkip} (Role page not implemented yet)
+        style={{
+          marginTop: 30,
+          padding: "12px 24px",
+          background: "#4f46e5",
+          color: "white",
+          border: "none",
+          borderRadius: 6,
+          cursor: "pointer",
+          marginLeft: 20,
+        }}
+      >
+        Skip
+      </button>
+
     </WizardLayout>
   );
 };
