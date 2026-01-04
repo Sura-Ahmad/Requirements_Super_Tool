@@ -1,4 +1,4 @@
-import ProgressBar from "../common/ProgressBar";
+import ProgressBar from "./ProgressBar";
 
 const steps = ["Domain", "Questions", "Role", "Type/Upload document","Requirements Editble Studio", "Optional Cross-Check", "SRS Document Generator"];
 
