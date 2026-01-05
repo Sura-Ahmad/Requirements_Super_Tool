@@ -1,6 +1,8 @@
 const DomainCard = ({ title, onSelect }) => {
   return (
     <div
+    id={`domain-${title.toLowerCase()}`}              
+      data-testid={`domain-${title.toLowerCase()}`} 
       onClick={onSelect}
       onMouseEnter={(e) => {
         e.currentTarget.style.backgroundColor = "#7b9cdeff";

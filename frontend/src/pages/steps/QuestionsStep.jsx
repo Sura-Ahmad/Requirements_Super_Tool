@@ -51,19 +51,23 @@ const QuestionsStep = () => {
 
       {questions.map((q, index) => (
         <div key={index} style={{ marginBottom: 20 }}>
-          <p>{q}</p>
+          <p>{q.text}</p>
           <input
+            id={`answer-${q.id}`}
+            data-testid={`answer-${q.id}`}
             style={{ width: "100%", padding: 10 }}
             placeholder="Your answer (optional)"
-            value={answers[q] || ""}
+            value={answers[q.id] || ""}
             onChange={(e) =>
-              setAnswers({ ...answers, [q]: e.target.value })
+              setAnswers({ ...answers, [q.id]: e.target.value })
             }
           />
         </div>
       ))}
 
       <button
+        id="back-btn"                 
+        data-testid="back-btn" 
         type="button"
         onClick={handleBack}
         style={{
@@ -80,6 +84,8 @@ const QuestionsStep = () => {
       </button>
 
       <button
+        id="submit-btn"                
+        data-testid="submit-btn"
         type="button"
         onClick={handleSubmit}
         style={{
@@ -97,6 +103,8 @@ const QuestionsStep = () => {
       </button>
 
       <button
+        id="skip-btn"                   
+        data-testid="skip-btn" 
         type="button"
         // onClick={handleSkip} (Role page not implemented yet)
         style={{
