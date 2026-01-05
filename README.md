@@ -42,7 +42,7 @@ If the port is not available do the following in the terminal to kill the proces
      - cd backend 
      - python -m uvicorn src.main:app --port 8005
 
-     Second run the frontend:
+Second run the frontend:
 1-	Write --> cd front end 
 2-	Write --> npm run dev
 3-	Copy the local-host url and open it in the browser
