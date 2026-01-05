@@ -37,12 +37,10 @@ First run the backend:
 
 If the port is not available do the following in the terminal to kill the process:
 1-	netstat -ano | findstr :8005
-2-	taskkill /PID 12345 /F  (replace 12345 with the resulted PID from step1 above)
+2-	taskkill /PID 12345 /F       (replace 12345 with the resulted PID from step1 above)
 3-	run these commands again :
-
-- git clone https://github.com/Sura-Ahmad/Requirements_Super_Tool.git
-- cd backend 
-- python -m uvicorn src.main:app --port 8005
+     - cd backend 
+     - python -m uvicorn src.main:app --port 8005
 
      Second run the frontend:
 1-	Write --> cd front end 
