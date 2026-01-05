@@ -11,8 +11,8 @@ def get_domain_questions(domain_name: str):
         questions = generate_domain_questions(domain_knowledge)
         return {"domain": domain_name, "questions": [
             {
-                "id": f"{domain_name}-{i}",   # NEW: id ثابت
-                "text": q                     # NEW: نص السؤال
+                "id": f"{domain_name}-{i}",   
+                "text": q                     
             }
             for i, q in enumerate(questions)
         ]

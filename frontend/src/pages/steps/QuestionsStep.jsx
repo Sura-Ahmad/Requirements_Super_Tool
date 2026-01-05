@@ -53,8 +53,8 @@ const QuestionsStep = () => {
         <div key={index} style={{ marginBottom: 20 }}>
           <p>{q.text}</p>
           <input
-            id={`answer-${q.id}`}
-            data-testid={`answer-${q.id}`}
+            id={"answer-${q.id}"}
+            data-testid={"answer-${q.id}"}
             style={{ width: "100%", padding: 10 }}
             placeholder="Your answer (optional)"
             value={answers[q.id] || ""}
