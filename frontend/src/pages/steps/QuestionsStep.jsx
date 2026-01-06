@@ -28,7 +28,7 @@ const QuestionsStep = () => {
   const handleSubmit = async () => {
     console.log("Submit clicked");
 
-    for (const question of questions) {
+    for (const q of questions) {
       await fetch("http://127.0.0.1:8005/pre-elicitation/response", {
         method: "POST",
         headers: {
@@ -36,8 +36,8 @@ const QuestionsStep = () => {
         },
         body: JSON.stringify({        // translate object to JSON string and send to backend(backend know string not object)
           domain: domain,
-          question: question,
-          answer: answers[question] || "",
+          question: q.text,
+          answer: answers[q.id] || "",
         }),
       });
     }
@@ -53,8 +53,8 @@ const QuestionsStep = () => {
         <div key={index} style={{ marginBottom: 20 }}>
           <p>{q.text}</p>
           <input
-            id={"answer-${q.id}"}
-            data-testid={"answer-${q.id}"}
+            id={'answer-${q.id}'}
+            data-testid={'answer-${q.id}'}
             style={{ width: "100%", padding: 10 }}
             placeholder="Your answer (optional)"
             value={answers[q.id] || ""}
