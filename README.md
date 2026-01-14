@@ -11,7 +11,7 @@ This tool keeps human-in-the-loop , where AI acts as an assistant instead of a d
 
 Implemented Features till now:
 
-- Domain selection with specific questions
+- Domain selection with domain-based questions
 User select domain from multiple options , then a domain-based questions appears on the screen waiting 
 the user to answer and submit to move for the following step.
 
