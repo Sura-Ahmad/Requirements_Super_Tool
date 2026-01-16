@@ -58,4 +58,4 @@ https://github.com/Sura-Ahmad/Requirements_Super_Tool
 
 How to run selenium test? :
 1- run backend
-2- write in the terminal root --> python -m pytest Tests/selenium/test_pre_elicitation_flow.py
+2- write in the terminal (Project root) --> python -m pytest Tests/selenium/test_pre_elicitation_flow.py
